@@ -1,0 +1,10 @@
+name: Kaboom
+options:
+  bundleIdPrefix: foo.bar.Kaboom
+targets:
+  Kaboom:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - Sources
