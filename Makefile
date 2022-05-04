@@ -1,16 +1,13 @@
-test: delete_project create_file generate_project modify_file generate_project_with_cache
+test: delete_project generate_project sw_vers
 
 generate_project:
-	mint run XcodeGen
-
-generate_project_with_cache:
-	mint run XcodeGen --use-cache
-
-modify_file:
-	echo "\nstruct Bar {}" >> Sources/Foo.swift
-
-create_file:
 	echo "\nstruct Foo {}" > Sources/Foo.swift
+	mint run XcodeGen --use-cache
+	echo "\nstruct Bar {}" >> Sources/Foo.swift
+	mint run XcodeGen --use-cache
 
 delete_project:
 	rm -rf Kaboom.xcodeproj
+
+sw_vers:
+	sw_vers
